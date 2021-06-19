@@ -127,6 +127,7 @@ class login(object):
         elif self.mensagem['text'] == 'E-mail já cadastrado.':
             pass
 
+
         else:
             self.data[usuario] = {'nome': nome, 'email': email, 'senha': senha}
             self.mensagem['text'] = 'Usuário criado com sucesso!'
@@ -250,11 +251,22 @@ class login(object):
 
     def inicia_aplicacao(self, usuario):
         if self.proxima_tela == 'pass':
-            pass
+            print('Nenhuma tela foi adicionada.')
+            print()
+            print('Para adicionar uma tela, crie uma classe semelhante a classe existente.')
+            print('Passe o nome da nova classe como o parametro "proxima_tela" da classe login.(linha 266)')
+            print()
+            print('OBS: telas subsequentes ao login recebem como parametro "mestre" e "usuario".')
+            print('mestre -> instancia de TK().')
+            print('usuario -> string.')
         else:
             self.proxima_tela(self.interface, usuario)
 
 
-tela = tkinter.Tk()
-login(tela, 'pass')
-tela.mainloop()
+if __name__ == '__main__':
+    #Cria uma tela
+    tela = tkinter.Tk()
+    #Configura a tela
+    login(mestre=tela, proxima_tela='pass')
+    # Inicia a tela
+    tela.mainloop()
