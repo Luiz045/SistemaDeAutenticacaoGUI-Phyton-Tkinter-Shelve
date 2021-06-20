@@ -89,8 +89,8 @@ class login(object):
                 if self.setlembrar.get() == 1:
                     self.data['ultimo<>:/?'] = [usuario_atual, senha_atual]
                     self.data.close()
-                    self.destroy_login()
-                    self.inicia_aplicacao(usuario_atual)
+                self.destroy_login()
+                self.inicia_aplicacao(usuario_atual)
             else:
                 self.mensagem['text'] = 'Senha inválida'
                 self.mensagem['fg'] = 'red'
